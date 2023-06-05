@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="heading">Hunt the Ace</div>
+    <hr>
+    <ng-container *ngIf="!gameStarted">
+        <div class="sub-header">Click 'Play Game' button to play the game</div>
+        <div class="btn-container">
+            <button (click)="onClickPlay()" class="btn">Play Game</button>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="gameStarted">
+        <div class="sub-header">
+            <div class="score">Score : {{score}}</div>
+            <div class="round">Round : {{round}}</div>
+        </div>
+        <div class="middle-container" *ngIf="!isclicked">Please click on the card that you think is Ace of Spades</div>
+        <div class="middle-container" *ngIf="isclicked && !cardFound">Missed <span style='font-size:24px;'> &nbsp;😟</span></div>
+        <div class="middle-container" *ngIf="isclicked && cardFound">You Got the Ace<span style='font-size:24px;'> &nbsp;😎</span></div>
+    </ng-container>
+    <div class="card-container">
+        <div class="card" *ngFor="let item of cardsData; let i = index">
+            <div class="card-inner" [ngClass]="{ flipped: item.isFlipped }">
+                <img class="card-front" [src]="item.img" [alt]="item.cardType" />
+                <img class="card-back" [src]="defaultCard" [alt]="item.cardType" (click)="clicked(item)" />
+            </div>
+        </div>
+    </div>
+</div>
