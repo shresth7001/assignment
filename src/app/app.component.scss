@@ -1,6 +1,6 @@
-$primary: #5056ED;
-$background: #F2F6F8;
-$overlay-background:  rgba(0, 0, 0, 0.3);
+$primary: #5056ed;
+$background: #f2f6f8;
+$overlay-background: rgba(0, 0, 0, 0.3);
 
 @mixin flex-box {
   display: flex;
@@ -19,6 +19,21 @@ $overlay-background:  rgba(0, 0, 0, 0.3);
 .sub-header {
   margin: 32px 0;
   @include flex-box;
+}
+
+.header-container {
+  display: flex;
+}
+
+.header-icons {
+  display: flex;
+  justify-content: flex-start;
+  flex-basis: 45%;
+  font-size: 28px;
+}
+
+.red-color {
+  color: red;
 }
 
 .heading {
@@ -47,9 +62,9 @@ $overlay-background:  rgba(0, 0, 0, 0.3);
 }
 
 @mixin score {
-    display: flex;
-    justify-content: flex-end;
-    flex-basis: 50%;
+  display: flex;
+  justify-content: flex-end;
+  flex-basis: 50%;
 }
 
 .score {
